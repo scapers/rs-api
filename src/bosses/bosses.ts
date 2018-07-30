@@ -1,5 +1,6 @@
 import { Araxxor } from './araxxor/araxxor'
 import { RoTS } from './rots/rots'
+import { Vorago } from './vorago/vorago'
 
 export class Bosses {
   constructor() {}
@@ -9,5 +10,8 @@ export class Bosses {
   }
   rots(): RoTS {
     return new RoTS()
+  }
+  vorago(): Vorago {
+    return new Vorago()
   }
 }

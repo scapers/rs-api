@@ -206,6 +206,79 @@ var RoTS = /** @class */ (function (_super) {
     return RoTS;
 }(Boss));
 
+var VoragoRotation = /** @class */ (function () {
+    function VoragoRotation(normal, hard) {
+        this.normal = normal || '';
+        this.hard = hard || new VoragoHardmode();
+    }
+    return VoragoRotation;
+}());
+/***
+ * @hidden
+ */
+var VoragoHardmode = /** @class */ (function () {
+    function VoragoHardmode(phase10, phase11, unlock) {
+        this.phase10 = phase10 || '';
+        this.phase11 = phase11 || '';
+        this.unlock = unlock || '';
+    }
+    return VoragoHardmode;
+}());
+
+/***
+ * @hidden
+ */
+var VoragoRotations = /** @class */ (function () {
+    function VoragoRotations() {
+        this.ceilings = new VoragoRotation('Ceiling Collapse', new VoragoHardmode('Team Split - Green Bomb', 'Team Split - Vitalis', 'Torso of Omens'));
+        this.scopulus = new VoragoRotation('Scopulus', new VoragoHardmode('Purple Bomb - Team Split', 'Purple Bomb - Vitalis', 'Helm of Omens'));
+        this.vitalis = new VoragoRotation('Vitalis', new VoragoHardmode('Vitalis - Purple Bomb', 'Vitalis - Bleeds', 'Legs of Omens'));
+        this.greenBomb = new VoragoRotation('Green Bomb', new VoragoHardmode('Green Bomb - Vitalis', 'Team Split - Purple Bomb', 'Boots of Omens'));
+        this.teamSplit = new VoragoRotation('Team Split', new VoragoHardmode('Team Split - Team Split', 'Team Split - Purple Bomb', 'Maul of Omens'));
+        this.theEnd = new VoragoRotation('The End', new VoragoHardmode('Purple Bomb - Bleeds', 'Purple Bomb - Vitalis', 'Gloves of Omens'));
+        this.rotation = [
+            this.ceilings,
+            this.scopulus,
+            this.vitalis,
+            this.greenBomb,
+            this.teamSplit,
+            this.theEnd
+        ];
+    }
+    return VoragoRotations;
+}());
+
+var Vorago = /** @class */ (function (_super) {
+    __extends(Vorago, _super);
+    function Vorago() {
+        var _this = _super.call(this) || this;
+        _this.voragoRotations = new VoragoRotations().rotation;
+        return _this;
+    }
+    Vorago.prototype.getRotationsForSpecific = function (forDate) {
+        var _this = this;
+        var rotations = [];
+        this.voragoRotations.forEach(function (r, i) {
+            var daysToAdd = 7 * i;
+            var now = new Date(forDate);
+            now.setDate(now.getDate() + daysToAdd);
+            var rotationIndex = Math.floor(((Math.floor(Math.floor(now / 1000) / (24 * 60 * 60)) - 6) %
+                (7 * _this.voragoRotations.length)) /
+                7);
+            var rotation = _this.voragoRotations[rotationIndex];
+            var daysUntilNext = 7 -
+                (((Math.floor(now / 1000 / (24 * 60 * 60)) - 6) % (7 * _this.voragoRotations.length)) % 7) +
+                daysToAdd;
+            var start = new Date(forDate);
+            start.setDate(start.getDate() + (daysUntilNext - 7));
+            rotations.push(new BossRotation(rotation, daysUntilNext, start));
+        });
+        _super.prototype.getRotationsForSpecific.call(this, forDate);
+        return rotations;
+    };
+    return Vorago;
+}(Boss));
+
 var Bosses = /** @class */ (function () {
     function Bosses() {
     }
@@ -214,6 +287,9 @@ var Bosses = /** @class */ (function () {
     };
     Bosses.prototype.rots = function () {
         return new RoTS();
+    };
+    Bosses.prototype.vorago = function () {
+        return new Vorago();
     };
     return Bosses;
 }());
