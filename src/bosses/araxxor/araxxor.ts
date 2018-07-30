@@ -1,25 +1,21 @@
 import { AraxxorPath } from './models/araxxor-path.model'
 import { AraxxorRotation } from './models/araxxor-rotation.model'
 import { AraxxorPaths } from './models/araxxor-paths.model'
-import { BossRotation } from '../bosses.models'
+import { BossRotation } from '../boss-rotation.model'
+import { Boss } from '../boss'
 
-export class Araxxor {
+export class Araxxor extends Boss {
   private availablePaths: AraxxorPaths = new AraxxorPaths()
   private paths: AraxxorPath[] = [
     this.availablePaths.top,
     this.availablePaths.middle,
     this.availablePaths.bottom
   ]
-  constructor() {}
-
-  getRotations(forDate?: Date): Promise<BossRotation[]> {
-    return new Promise(resolve => {
-      forDate = forDate == null ? new Date() : forDate
-      resolve(this.getRotationsForSpecific(forDate))
-    })
+  constructor() {
+    super()
   }
 
-  private getRotationsForSpecific(forDate: Date) {
+  getRotationsForSpecific(forDate: Date): BossRotation[] {
     let rotations: BossRotation[] = []
     this.paths.forEach((path: AraxxorPath, i: number) => {
       // find date to calculate for
@@ -35,17 +31,18 @@ export class Araxxor {
         return path != closed
       })
       // find days until the next index would be reached to find last day of rotation
-      const daysUntilNextIndex =
+      const daysUntilNext =
         4 -
         (((Math.floor(Date.now() / 1000 / (24 * 60 * 60)) + 3) % (4 * this.paths.length)) % 4) +
         daysToAdd
       // find when the current rotation started
       let start = new Date(forDate)
-      start.setDate(start.getDate() + (daysUntilNextIndex - 4))
+      start.setDate(start.getDate() + (daysUntilNext - 4))
       // build araxxor rotation
       const rotation: AraxxorRotation = new AraxxorRotation(open, closed)
-      rotations.push(new BossRotation(rotation, daysUntilNextIndex, start))
+      rotations.push(new BossRotation(rotation, daysUntilNext, start))
     })
+    super.getRotationsForSpecific(forDate)
     return rotations
   }
 }

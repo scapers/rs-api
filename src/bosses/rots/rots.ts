@@ -1,20 +1,16 @@
-import { BossRotation } from '../bosses.models'
+import { BossRotation } from '../boss-rotation.model'
 import { RoTSBrothersRotation } from './models/rots-brothers-rotations.model'
 import { RoTSRotation } from './models/rots-rotation.model'
 import { RoTSBrother } from './models/rots-brother.enum'
+import { Boss } from '../boss'
 
-export class RoTS {
+export class RoTS extends Boss {
   private rotsRotation: RoTSRotation[] = new RoTSBrothersRotation().rotation
-  constructor() {}
-
-  getRotations(forDate?: Date): Promise<BossRotation[]> {
-    return new Promise(resolve => {
-      forDate = forDate == null ? new Date() : forDate
-      resolve(this.getRotationsForSpecific(forDate))
-    })
+  constructor() {
+    super()
   }
 
-  private getRotationsForSpecific(forDate: Date) {
+  getRotationsForSpecific(forDate: Date): BossRotation[] {
     let rotations: BossRotation[] = []
     this.rotsRotation.forEach((r: RoTSRotation, i: number) => {
       let now: any = new Date(forDate)
@@ -26,6 +22,7 @@ export class RoTS {
       )
       rotations.push(new BossRotation(rotation, 1, now))
     })
+    super.getRotationsForSpecific(forDate)
     return rotations
   }
 }
