@@ -1,4 +1,11 @@
 // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
 // import "core-js/fn/array.find"
 // ...
-export default class DummyClass {}
+import { Bosses } from './bosses/bosses'
+
+export default class RsApi {
+  constructor() {}
+  bosses(): Bosses {
+    return new Bosses()
+  }
+}
