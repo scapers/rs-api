@@ -111,6 +111,6 @@
     "travis-deploy-once": "^5.0.1"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   }
 }
