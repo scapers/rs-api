@@ -17,8 +17,8 @@ export class RoTS extends Boss {
       now.setDate(now.getDate() + i)
       const rotationIndex: number = Math.floor(now / 1000 / (24 * 60 * 60)) % 20
       const rotation = new RoTSRotation(
-        <RoTSBrother[]>this.rotsRotation[rotationIndex].west,
-        <RoTSBrother[]>this.rotsRotation[rotationIndex].east
+        this.rotsRotation[rotationIndex].west as RoTSBrother[],
+        this.rotsRotation[rotationIndex].east as RoTSBrother[]
       )
       rotations.push(new BossRotation(rotation, 1, now))
     })

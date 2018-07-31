@@ -28,7 +28,7 @@ export class Araxxor extends Boss {
       )
       const closed: AraxxorPath = this.paths[rotationIndex]
       const open: AraxxorPath[] = this.paths.filter((path: AraxxorPath) => {
-        return path != closed
+        return path !== closed
       })
       // find days until the next index would be reached to find last day of rotation
       const daysUntilNext =

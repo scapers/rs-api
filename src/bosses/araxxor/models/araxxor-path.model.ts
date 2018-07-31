@@ -2,13 +2,13 @@
  * @model Schema for araxxor path
  */
 export class AraxxorPath {
+  location: string
+  pathNumber: number
+  characteristic: string
   /* istanbul ignore next */
-  constructor(location?: string, number?: number, characteristic?: string) {
+  constructor(location?: string, pathNumber?: number, characteristic?: string) {
     this.location = location || ''
-    this.number = number || 0
+    this.pathNumber = pathNumber || 0
     this.characteristic = characteristic || ''
   }
-  location: string
-  number: number
-  characteristic: string
 }

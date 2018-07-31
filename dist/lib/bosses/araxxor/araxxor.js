@@ -38,7 +38,7 @@ var Araxxor = /** @class */ (function (_super) {
             var rotationIndex = Math.floor(((Math.floor(Math.floor(now / 1000) / (24 * 60 * 60)) + 3) % (4 * _this.paths.length)) / 4);
             var closed = _this.paths[rotationIndex];
             var open = _this.paths.filter(function (path) {
-                return path != closed;
+                return path !== closed;
             });
             // find days until the next index would be reached to find last day of rotation
             var daysUntilNext = 4 -

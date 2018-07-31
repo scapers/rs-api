@@ -3,8 +3,6 @@ import { RoTS } from './rots/rots'
 import { Vorago } from './vorago/vorago'
 
 export class Bosses {
-  constructor() {}
-
   araxxor(): Araxxor {
     return new Araxxor()
   }

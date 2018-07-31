@@ -3,12 +3,11 @@ import { VoragoRotation } from './vorago-rotation.model';
  * @hidden
  */
 export declare class VoragoRotations {
-    private ceilings;
-    private scopulus;
-    private vitalis;
-    private greenBomb;
-    private teamSplit;
-    private theEnd;
-    constructor();
+    ceilings: VoragoRotation;
+    scopulus: VoragoRotation;
+    vitalis: VoragoRotation;
+    greenBomb: VoragoRotation;
+    teamSplit: VoragoRotation;
+    theEnd: VoragoRotation;
     rotation: VoragoRotation[];
 }

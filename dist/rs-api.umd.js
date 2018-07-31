@@ -35,9 +35,9 @@
      */
     var AraxxorPath = /** @class */ (function () {
         /* istanbul ignore next */
-        function AraxxorPath(location, number, characteristic) {
+        function AraxxorPath(location, pathNumber, characteristic) {
             this.location = location || '';
-            this.number = number || 0;
+            this.pathNumber = pathNumber || 0;
             this.characteristic = characteristic || '';
         }
         return AraxxorPath;
@@ -117,7 +117,7 @@
                 var rotationIndex = Math.floor(((Math.floor(Math.floor(now / 1000) / (24 * 60 * 60)) + 3) % (4 * _this.paths.length)) / 4);
                 var closed = _this.paths[rotationIndex];
                 var open = _this.paths.filter(function (path) {
-                    return path != closed;
+                    return path !== closed;
                 });
                 // find days until the next index would be reached to find last day of rotation
                 var daysUntilNext = 4 -

@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var AraxxorPath = /** @class */ (function () {
     /* istanbul ignore next */
-    function AraxxorPath(location, number, characteristic) {
+    function AraxxorPath(location, pathNumber, characteristic) {
         this.location = location || '';
-        this.number = number || 0;
+        this.pathNumber = pathNumber || 0;
         this.characteristic = characteristic || '';
     }
     return AraxxorPath;

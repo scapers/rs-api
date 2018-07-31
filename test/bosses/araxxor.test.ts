@@ -23,7 +23,7 @@ describe('Araxxor', () => {
   it('path model is constructed', () => {
     let ap = new AraxxorPath('top', 1, 'Minions')
     expect(ap.location).toEqual('top')
-    expect(ap.number).toEqual(1)
+    expect(ap.pathNumber).toEqual(1)
     expect(ap.characteristic).toEqual('Minions')
   })
 })
