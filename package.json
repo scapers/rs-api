@@ -1,6 +1,6 @@
 {
   "name": "rs-api",
-  "version": "3.0.0-alpha.1",
+  "version": "1.0.0-alpha.1",
   "description": "",
   "keywords": [],
   "main": "dist/rs-api.umd.js",
@@ -12,7 +12,7 @@
   "author": "alexkempf <ackempf@eagles.usi.edu>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/axke/rs-api"
+    "url": "https://github.com/scapers/rs-api"
   },
   "license": "MIT",
   "engines": {
@@ -28,7 +28,7 @@
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "commit": "npm run build && git add --all && git-cz",
+    "commit": "git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
