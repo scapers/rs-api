@@ -1,6 +1,6 @@
 {
-  "name": "rs-api",
-  "version": "1.0.0-alpha.1",
+  "name": "@scapers/rs-api",
+  "version": "0.0.0-development",
   "description": "",
   "keywords": [],
   "main": "dist/rs-api.umd.js",
@@ -9,7 +9,7 @@
   "files": [
     "dist"
   ],
-  "author": "alexkempf <ackempf@eagles.usi.edu>",
+  "author": "axke <ackempf@eagles.usi.edu>",
   "repository": {
     "type": "git",
     "url": "https://github.com/scapers/rs-api"
@@ -28,7 +28,7 @@
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "commit": "git-cz",
+    "commit": "git add --all && git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
@@ -109,5 +109,8 @@
     "typescript": "^2.6.2",
     "validate-commit-msg": "^2.12.2",
     "travis-deploy-once": "^5.0.1"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
