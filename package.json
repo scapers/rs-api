@@ -1,6 +1,6 @@
 {
   "name": "rs-api",
-  "version": "0.0.0-development",
+  "version": "3.0.0-alpha.1",
   "description": "",
   "keywords": [],
   "main": "dist/rs-api.umd.js",
