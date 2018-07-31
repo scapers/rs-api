@@ -1,14 +1,9 @@
-import DummyClass from '../src/rs-api'
+import RsApi from '../src/rs-api'
+import { Bosses } from '../src/bosses/bosses'
+import { Araxxor } from '../dist/types/bosses/araxxor/araxxor'
 
-/**
- * Dummy test
- */
-describe('Dummy test', () => {
-  it('works if true is truthy', () => {
-    expect(true).toBeTruthy()
-  })
-
-  it('DummyClass is instantiable', () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass)
+describe('RsApi', () => {
+  it('RsApi is instantiable', () => {
+    expect(new RsApi()).toBeInstanceOf(RsApi)
   })
 })

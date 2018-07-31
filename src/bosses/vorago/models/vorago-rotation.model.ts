@@ -1,4 +1,5 @@
 export class VoragoRotation {
+  /* istanbul ignore next */
   constructor(normal?: string, hard?: VoragoHardmode) {
     this.normal = normal || ''
     this.hard = hard || new VoragoHardmode()
@@ -11,6 +12,7 @@ export class VoragoRotation {
  * @hidden
  */
 export class VoragoHardmode {
+  /* istanbul ignore next */
   constructor(phase10?: string, phase11?: string, unlock?: string) {
     this.phase10 = phase10 || ''
     this.phase11 = phase11 || ''

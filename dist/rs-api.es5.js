@@ -28,6 +28,7 @@ function __extends(d, b) {
  * @model Schema for araxxor path
  */
 var AraxxorPath = /** @class */ (function () {
+    /* istanbul ignore next */
     function AraxxorPath(location, number, characteristic) {
         this.location = location || '';
         this.number = number || 0;
@@ -40,6 +41,7 @@ var AraxxorPath = /** @class */ (function () {
  * @model Schema for araxxor rotation
  */
 var AraxxorRotation = /** @class */ (function () {
+    /* istanbul ignore next */
     function AraxxorRotation(open, closed) {
         this.open = open || [];
         this.closed = closed || new AraxxorPath();
@@ -60,9 +62,10 @@ var AraxxorPaths = /** @class */ (function () {
 }());
 
 var BossRotation = /** @class */ (function () {
+    /* istanbul ignore next */
     function BossRotation(rotation, daysUntilNext, startDate) {
         this.rotation = rotation || null;
-        this.daysUntilNext = daysUntilNext || 0;
+        this.daysUntilNext = daysUntilNext || -1;
         this.startDate = startDate || new Date();
     }
     return BossRotation;
@@ -131,6 +134,7 @@ var Araxxor = /** @class */ (function (_super) {
  * @model Schema for a rise of the six rotation
  */
 var RoTSRotation = /** @class */ (function () {
+    /* istanbul ignore next */
     function RoTSRotation(west, east) {
         this.west = west || null;
         this.east = east || null;
@@ -207,6 +211,7 @@ var RoTS = /** @class */ (function (_super) {
 }(Boss));
 
 var VoragoRotation = /** @class */ (function () {
+    /* istanbul ignore next */
     function VoragoRotation(normal, hard) {
         this.normal = normal || '';
         this.hard = hard || new VoragoHardmode();
@@ -217,6 +222,7 @@ var VoragoRotation = /** @class */ (function () {
  * @hidden
  */
 var VoragoHardmode = /** @class */ (function () {
+    /* istanbul ignore next */
     function VoragoHardmode(phase10, phase11, unlock) {
         this.phase10 = phase10 || '';
         this.phase11 = phase11 || '';
