@@ -1,21 +1,28 @@
-import RsApi from '../../src/rs-api'
-import { RoTS } from '../../src/bosses/rots/rots'
+import RSapi from '../../../src/rsapi'
+import { Vorago } from '../../../src/bosses/vorago/vorago'
 
 describe('RoTS', () => {
   it('RoTS is instantiable', () => {
-    expect(new RsApi().bosses().rots()).toBeInstanceOf(RoTS)
+    expect(
+      new RSapi()
+        .rs()
+        .bosses()
+        .vorago()
+    ).toBeInstanceOf(Vorago)
   })
   it('getRotations today', () => {
-    return new RsApi()
+    return new RSapi()
+      .rs()
       .bosses()
-      .rots()
+      .vorago()
       .getRotations()
       .then(rotations => expect(rotations[0].daysUntilNext).toBeGreaterThan(-1))
   })
   it('getRotations specific day', () => {
-    return new RsApi()
+    return new RSapi()
+      .rs()
       .bosses()
-      .rots()
+      .vorago()
       .getRotations(new Date('2018-07-30'))
       .then(rotations => expect(rotations[0].daysUntilNext).toBeGreaterThan(-1))
   })
