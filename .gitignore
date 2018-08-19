@@ -5,9 +5,9 @@ coverage
 *.log
 .vscode
 .idea
-docs
 dist
 compiled
 .awcache
 .rpt2_cache
+docs
 package-lock.json
