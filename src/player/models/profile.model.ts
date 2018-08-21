@@ -1,7 +1,9 @@
 import { Event } from './event.model';
 import { Skills } from './skills.model';
 import { Activities } from './activities.model';
-
+/***
+ * @model Schema for RuneScape account profile
+ */
 export class Profile {
   display: string;
   events: Event[];

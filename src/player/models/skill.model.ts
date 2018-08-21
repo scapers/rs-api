@@ -1,3 +1,6 @@
+/***
+ * @model Schema for skill
+ */
 export class Skill {
   level: number;
   experience: number;

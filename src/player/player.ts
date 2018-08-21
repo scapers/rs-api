@@ -28,6 +28,22 @@ export class Player {
     }
   }
 
+  /***
+   * Gets a player's events (if public), skills, and activities (if requested) [availability: `rs`]
+   * @returns {Promise<Profile>}
+   * @example
+   * // returns profile for user `Sync`
+   * const profile: Profile = await new RSapi().rs().player('sync').profile();
+   *
+   * // returns profile, with activities for user `Sync`
+   * const profileWithActivities: Profile = await new RSapi().rs().player('sync', true).profile();
+   *
+   * // returns normal ironman profile, with activities for `Sausage`
+   * const ironmanProfileWithActivities: Profile = await new RSapi().rs().player('sausage', true, 'ironman').profile();
+   *
+   * // returns hardcore ironman profile, with activities for `Sausage`
+   * const hardcoreProfileWithActivities: Profile = await new RSapi().rs().player('sausage', true, 'hardcore').profile();
+   */
   async profile(): Promise<Profile> {
     let profile = new Profile();
     let rawHiscore: any = null;

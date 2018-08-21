@@ -1,3 +1,6 @@
+/***
+ * @model Schema for event (previously known as adventures log)
+ */
 export class Event {
   date: Date;
   details: string;

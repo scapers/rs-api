@@ -1,5 +1,7 @@
 import { Skill } from './skill.model'
-
+/***
+ * @model Schema for RuneScape skills
+ */
 export class Skills {
   overall: Skill = new Skill();
   attack: Skill = new Skill();

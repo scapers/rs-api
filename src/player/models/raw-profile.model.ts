@@ -1,5 +1,7 @@
 import { Event } from './event.model';
-
+/***
+ * @hidden
+ */
 export interface RawProfile {
   activities: Event[];
   skillvalues: RawSkill[];
@@ -16,7 +18,9 @@ export interface RawProfile {
   loggedIn: string;
   error: string;
 }
-
+/***
+ * @hidden
+ */
 export interface RawSkill {
   level: number;
   xp: number;
