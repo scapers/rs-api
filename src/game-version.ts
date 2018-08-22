@@ -8,7 +8,11 @@ export class GameVersion {
     this.version = version;
   }
 
-  player(display: string, includeActivities: boolean = false, type: string = 'normal'): Player {
+  player(
+    display: string | string[],
+    includeActivities: boolean = false,
+    type: string = 'normal'
+  ): Player {
     return new Player(this.version, display, includeActivities, type);
   }
 

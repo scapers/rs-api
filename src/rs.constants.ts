@@ -8,6 +8,8 @@ export class RsConstants {
     'http://services.runescape.com/m=hiscore_ironman/index_lite.ws?player=';
   readonly HARDCORE_HISCORE_ENDPOINT: string =
     'http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player=';
+  readonly PLAYER_DETAILS_ENDPOINT: string =
+    'http://services.runescape.com/m=website-data/playerDetails.ws?names=';
   readonly SKILL_IDS: any[] = [
     { id: 0, name: 'Attack' },
     { id: 1, name: 'Defence' },
