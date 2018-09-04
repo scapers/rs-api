@@ -1,5 +1,6 @@
 import { Player } from './player/player';
 import { Bosses } from './bosses/bosses';
+import { Clan } from './clan/clan';
 
 export class GameVersion {
   private version: string;
@@ -18,5 +19,9 @@ export class GameVersion {
 
   bosses(): Bosses {
     return new Bosses();
+  }
+
+  clan(clanName: string): Clan {
+    return new Clan(this.version, clanName);
   }
 }

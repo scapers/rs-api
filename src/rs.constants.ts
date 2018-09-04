@@ -46,4 +46,7 @@ export class RsConstants {
     { index: 55, name: 'eliteClueScrolls' },
     { index: 56, name: 'masterClueScrolls' }
   ];
+
+  readonly CLAN_ENDPOINT: string =
+    'http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName=';
 }
